@@ -1,12 +1,12 @@
 require 'selenium-webdriver'
-require 'rubygems'
+require 'wait'
 
 driver = Selenium::WebDriver.for :firefox
 
 
-Given(/^the user opens a browser$/) do
-  driver = Selenium::WebDriver.for :firefox
-end
+#Given(/^the user opens a browser$/) do
+#  driver = Selenium::WebDriver.for :firefox
+#end
 
 Given(/^the user navigates a browser to Quolytics$/) do
   driver.navigate.to"https://devwebtest.dev.local/Quolytics/Account/Login/"
@@ -60,7 +60,6 @@ end
 
 Given(/^clicks the Log off button$/) do
       element = driver.find_element(:class, 'fa-sign-out').click
-      sleep(2)
 end
 
 Then(/^they will be logged out of Quolytics$/) do
@@ -89,3 +88,5 @@ end
 Then(/^clean up$/) do
   driver.quit();
 end
+
+
