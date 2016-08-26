@@ -1,4 +1,5 @@
 require 'selenium-webdriver'
+require 'rspec'
 
 driver = Selenium::WebDriver.for :firefox
 
@@ -18,7 +19,7 @@ Given(/^clicks the About navigation button$/) do
 end
 
 Then(/^they will be directed to the About page$/) do
-  element = driver.find_element(:class, 'body-content').displayed?
+  expect(driver.title).to eq("Quolytics 2.0 © 2016 - Quomation Insurnace Services, All Rights Reserved")
 end
 
 Given(/^clicks the Admin navigation button$/) do
@@ -26,7 +27,7 @@ Given(/^clicks the Admin navigation button$/) do
 end
 
 Then(/^they will be directed to the Admin page$/) do
-  element = driver.find_element(:class, 'body-content').displayed?
+  expect(driver.title).to eq("Administration - Quolytics 2.0")
 end
 
 Then(/^they click the Diagnostics button$/) do
@@ -52,7 +53,7 @@ Given(/^clicks the Contact navigation button$/) do
 end
 
 Then(/^they will be directed to the Contact page$/) do
-    element = driver.find_element(:class, 'body-content').displayed?
+  expect(driver.title).to eq("Quolytics 2.0 © 2016 - Quomation Insurnace Services, All Rights Reserved")
 end
 
 Given(/^clicks the Downloads navigation button$/) do
@@ -60,7 +61,7 @@ Given(/^clicks the Downloads navigation button$/) do
 end
 
 Then(/^they will be directed to the Downloads page$/) do
-    element = driver.find_element(:class, 'k-i-refresh').displayed?
+expect(driver.title).to eq("Download Files - Quolytics 2.0")
 end
 
 Then(/^the homepage will display the downloads window$/) do
@@ -80,7 +81,7 @@ And(/^clicks the User Profile button$/) do
 end
 
 Then(/^they will be directed to the User Profile page$/) do
-	element = driver.find_element(:class, 'panel-default').displayed?
+  expect(driver.title).to eq("- Quolytics 2.0")
 end
 
 Then(/^they will be logged out of Quolytics$/) do
