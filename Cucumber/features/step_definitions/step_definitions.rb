@@ -1,5 +1,4 @@
 require 'selenium-webdriver'
-require 'wait'
 
 driver = Selenium::WebDriver.for :firefox
 
@@ -14,7 +13,7 @@ end
 
 Given(/^logs in$/) do
   element = driver.find_element(:id, 'UserName').send_keys"olfuss.ratatosksson"
-  element = driver.find_element(:id, 'Password').send_keys"Odinsson1!"
+  element = driver.find_element(:id, 'Password').send_keys"Odinsson101010"
   element = driver.find_element(:class, 'btn-default').click
 end
 
