@@ -3,10 +3,6 @@ require 'selenium-webdriver'
 driver = Selenium::WebDriver.for :firefox
 
 
-#Given(/^the user opens a browser$/) do
-#  driver = Selenium::WebDriver.for :firefox
-#end
-
 Given(/^the user navigates a browser to Quolytics$/) do
   driver.navigate.to"https://devwebtest.dev.local/Quolytics/Account/Login/"
 end
@@ -31,6 +27,24 @@ end
 
 Then(/^they will be directed to the Admin page$/) do
   element = driver.find_element(:class, 'body-content').displayed?
+end
+
+Then(/^they click the Diagnostics button$/) do
+  element = driver.find_element(:id, 'cmdDiagnostics').click
+  element = driver.find_element(:link_text, 'NLog').click
+  element = driver.find_element(:link_text, 'Elmah').click
+end
+
+Then(/^they click the Purgatory button$/) do
+  element = driver.find_element(:id, 'cmdPurgatory').click
+end
+
+Then(/^they click the Subscribers button$/) do
+  element = driver.find_element(:id, 'cmdSubscribers').click
+end
+
+Then(/^they click the Users button$/) do
+  element = driver.find_element(:id, 'cmdUsers').click
 end
 
 Given(/^clicks the Contact navigation button$/) do
@@ -61,7 +75,16 @@ Given(/^clicks the Log off button$/) do
       element = driver.find_element(:class, 'fa-sign-out').click
 end
 
+And(/^clicks the User Profile button$/) do
+	element = driver.find_element(:class, 'fa-user').click
+end
+
+Then(/^they will be directed to the User Profile page$/) do
+	element = driver.find_element(:class, 'panel-default').displayed?
+end
+
 Then(/^they will be logged out of Quolytics$/) do
+	  sleep(3)
       element = driver.find_element(:id, 'UserName').displayed?
 end
 
