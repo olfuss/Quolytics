@@ -3,7 +3,6 @@ require 'rspec'
 
 driver = Selenium::WebDriver.for :chrome
 
-
 Given(/^the user navigates a browser to Quolytics$/) do
   driver.navigate.to"https://devwebtest.dev.local/Quolytics/Account/Login/"
 end
